@@ -66,6 +66,7 @@ namespace GUI
             Person newPerson = (Person)Listbox_People.SelectedItem;
 
             manager.Remove(newPerson);
+            
 
             Listbox_People.Items.Clear();
             Button_Load_People_Click(sender, e);

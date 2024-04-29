@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation.Peers;
 using System.Dynamic;
+using System.Windows.Controls;
 
 namespace GUI
 {
@@ -60,7 +61,7 @@ namespace GUI
 
             MessageBox.Show("You have added " + myStr + " to the list.");
 
-
+            StoreData();
 
         }
 
@@ -89,9 +90,10 @@ namespace GUI
 
                 
             }
+            TextBox()
 
             MainWindow.counter--;
-
+            StoreData();
         }
 
         public Person Search(int id)
