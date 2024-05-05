@@ -1,0 +1,12 @@
+﻿Martina Ait 20114816
+
+TODO LIST:
+1) Use dictionary to filter out assigned contractors
+2) Use dictornary to display available jobs
+3) Calculate per hour something, i dont know :D ???
+4) Start secondpage to make visually more appealing
+
+QUESTIONS:
+1) Should i make new class for assigned contractors to jobs (Dictionary)?
+2) How should I organize my MainWindow.xaml.cs to be more readable?
+3) I have a lot of repeating methods, how to reduce that, under a new class?
