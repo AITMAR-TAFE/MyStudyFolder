@@ -1,12 +1,26 @@
 ﻿Martina Ait 20114816
 
 TODO LIST:
-1) Use dictionary to filter out assigned contractors
-2) Use dictornary to display available jobs
-3) Calculate per hour something, i dont know :D ???
-4) Start secondpage to make visually more appealing
+1) Use dictionary to filter out assigned contractors. NOT NEEDED ANY MORE
+2) Use dictIornary to display available jobs. NOT NEEDED ANY MORE
+3) Calculate per hour something, make use of cost of job and wage, i dont know :D ???
+4) Start secondpage to make visually more appealing. NOT GOING TO DO SECOND PAGE ANYMORE
+5) JSON file needs to be done!!!!!!!!
 
 QUESTIONS:
 1) Should i make new class for assigned contractors to jobs (Dictionary)?
+	Figured out a way to not use dictonary, turned out to be way easier. Deleted dictonary and everything with it.
 2) How should I organize my MainWindow.xaml.cs to be more readable?
-3) I have a lot of repeating methods, how to reduce that, under a new class?
+3) I have a lot of repeating methods, how to reduce that, under a new class?(ADD, REMOVE, LOAD, AVAILABLE LIST)
+4) Is Dirctonary even needed if I could just change details of the job/contractor with given id?
+	Nope, fixed this.
+
+ASSESSMENT REQUIREMENTS:
+1) Add Contractor. DONE
+2) Remove Contractor. DONE
+3) Create Job. DONE
+4) Assign a contractor to a job. DONE
+5) Complete a job (returning the contractor to the available pool) DONE
+6) View/filter available contractors to add to a job. DONE
+7) View/filter jobs that do not have a contractor assigned. DONE
+8) Search for a job by cost within a given range. DONE

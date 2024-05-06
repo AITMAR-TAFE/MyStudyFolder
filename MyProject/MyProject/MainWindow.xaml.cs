@@ -19,6 +19,7 @@ namespace MyProject
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
+
     {
         ContractorManager contractorManager = new ContractorManager();
 
@@ -30,8 +31,9 @@ namespace MyProject
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
+
 
 
         private void Button_AddContractor_Click(object sender, RoutedEventArgs e)
@@ -39,6 +41,7 @@ namespace MyProject
             DateTime dateTime = DateTime.Parse(Datepicker_StartDate.Text);
             int wage = 0;
             int.TryParse(Combo_Wage.Text, out wage);
+
 
             if (contractorCounter != 10)
             {
@@ -104,7 +107,7 @@ namespace MyProject
 
             if (jobCounter != 10)
             {
-                Job newjob = new Job(jobCounter, TextBox_JobName.Text, cost, Job.JobStatus.NotCompleted);
+                Job newjob = new Job(jobCounter, TextBox_JobName.Text, cost, Job.JobStatus.NotCompleted," ");
                 jobManager.AddJob(newjob);
                 jobCounter++;
 
@@ -143,7 +146,24 @@ namespace MyProject
 
         private void Button_CompleteJob_Click(object sender, RoutedEventArgs e)
         {
-            ///TODO
+            if (ListBox_Jobs.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a job to complete. ");
+                return;
+            }
+
+            Job selectedJob = (Job)ListBox_Jobs.SelectedItem;
+
+            if (selectedJob.Status != Job.JobStatus.ContractorAssigned)
+            {
+                MessageBox.Show("Please select a job that has Contractor Assigned. ");
+                return;
+            }
+
+            jobManager.CompleteJob(selectedJob);
+            ListBox_Jobs.Items.Clear();
+            Button_LoadJobs_Click(sender, e);
+            ///Check if the selected item
         }
 
 
@@ -168,7 +188,9 @@ namespace MyProject
             }
 
             // Assign the job to the contractor
-            jobManager.AssignJob(selectedContractor, selectedJob);
+            jobManager.AssignJob(selectedJob, selectedContractor);
+            Button_LoadJobs_Click(sender,e);
+            Button_LoadContractors_Click(sender, e);
 
         }
 
@@ -192,6 +214,33 @@ namespace MyProject
             {
                 ListBox_Jobs.Items.Add(job);
             }
+        }
+
+        private void Button_InRangeJobs_Click(object sender, RoutedEventArgs e)
+        {
+            ListBox_Jobs.Items.Clear();
+
+            if (!int.TryParse(TextBox_JobCost_Min.Text, out int minCost) || !int.TryParse(TextBox_JobCost_Max.Text, out int maxCost))
+            {
+                MessageBox.Show("Invalid input! Please enter valid numbers for job costs.");
+                return;
+            }
+
+            if (int.Parse(TextBox_JobCost_Min.Text) < 0 || int.Parse(TextBox_JobCost_Max.Text) < 0)
+            {
+                MessageBox.Show("Job costs cannot be negative.");
+                return;
+            }
+
+            foreach (Job job in jobManager.GetJobList())
+            {
+                if (job.Cost >= minCost && job.Cost <= maxCost)
+                {
+                    ListBox_Jobs.Items.Add(job);
+                }
+            }
+
+            ///Button_LoadJobs_Click(sender, e);
         }
     }
 }

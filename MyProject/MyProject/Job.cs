@@ -13,23 +13,22 @@ namespace MyProject
         public int Cost { get; set; }
         public JobStatus Status { get; set; }
 
+        public string ContractorName { get; set; }
+
         public Job()
         {
 
         }
 
-        public Job(int id_job, string name, int cost, JobStatus status)
+        public Job(int id_job, string name, int cost, JobStatus status, string contractorName)
         {
             ID_job = id_job;
             Name = name;
             Cost = cost;
             Status = status;
+            ContractorName = contractorName;
         }
-
-        public void AssingJob()
-        {
-            Status = JobStatus.ContractorAssigned;
-        }
+        
 
         public override string ToString()
         {
@@ -49,7 +48,7 @@ namespace MyProject
                     break;
             }
 
-            return $"{Name} (${Cost}) {statusString}";
+            return $"{Name} (${Cost}) {statusString} {ContractorName}";
         }
 
     public enum JobStatus
