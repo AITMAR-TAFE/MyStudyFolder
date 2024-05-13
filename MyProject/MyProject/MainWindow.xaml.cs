@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace MyProject
 {
@@ -25,15 +27,15 @@ namespace MyProject
 
         JobManager jobManager = new JobManager();
 
+        
+
         public static int contractorCounter = 3;
         public static int jobCounter = 3;
 
         public MainWindow()
         {
             InitializeComponent();
-
         }
-
 
 
         private void Button_AddContractor_Click(object sender, RoutedEventArgs e)
@@ -160,10 +162,14 @@ namespace MyProject
                 return;
             }
 
+            contractorManager.ContractorAvailable(selectedJob.ContractorName);
             jobManager.CompleteJob(selectedJob);
+            
             ListBox_Jobs.Items.Clear();
+            ListBox_Contractors.Items.Clear();
             Button_LoadJobs_Click(sender, e);
-            ///Check if the selected item
+            Button_LoadContractors_Click(sender, e);
+            
         }
 
 
@@ -189,8 +195,10 @@ namespace MyProject
 
             // Assign the job to the contractor
             jobManager.AssignJob(selectedJob, selectedContractor);
+            contractorManager.SaveToJson();
             Button_LoadJobs_Click(sender,e);
             Button_LoadContractors_Click(sender, e);
+            
 
         }
 
@@ -241,6 +249,12 @@ namespace MyProject
             }
 
             ///Button_LoadJobs_Click(sender, e);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            jobManager.SaveToJson();
+            MessageBox.Show("See you next time! :) ");
         }
     }
 }

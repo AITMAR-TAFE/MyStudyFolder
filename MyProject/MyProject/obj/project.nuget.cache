@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Rl/XAnUE7iVwo2TzSSMnQlDawJI2VoAfmDRGYFCimFiJwAGhlnEgZCwJcyx+XyVEeMGcYm5PKdi3p0gPKAlepw==",
+  "dgSpecHash": "Xlmi/VOA3eQZ2LzWwMCEq++IDBFi8+8WnGtwjL3vNAj4i/x0ZTCCM6DqVJhbC3GgxhtjyqdN4HuerYHzqmj0CA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AITMAR\\Source\\Repos\\MyStudyFolder\\MyProject\\MyProject\\MyProject.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\20114816\\source\\repos\\MyProject\\MyProject\\MyProject\\MyProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\20114816\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

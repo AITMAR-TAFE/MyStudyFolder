@@ -5,59 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000">
-    <Grid>
-        <ListBox x:Name="ListBox_Contractors" HorizontalAlignment="Left" Height="157" Margin="44,41,0,0" VerticalAlignment="Top" Width="230" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <ListBox x:Name="ListBox_Jobs" HorizontalAlignment="Left" Height="157" Margin="637,41,0,0" VerticalAlignment="Top" Width="289" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button x:Name="Button_LoadContractors" Content="All Contractors" HorizontalAlignment="Left" Height="28" Margin="44,226,0,0" VerticalAlignment="Top" Width="126" Click="Button_LoadContractors_Click"/>
-        <Button x:Name="Button_LoadJobs" Content="Load Jobs" HorizontalAlignment="Left" Height="28" Margin="637,226,0,0" VerticalAlignment="Top" Width="127" Click="Button_LoadJobs_Click"/>
-        <Label Content="First Name:" HorizontalAlignment="Left" Height="28" Margin="333,37,0,0" VerticalAlignment="Top" Width="79"/>
-        <Label Content="Last Name:" HorizontalAlignment="Left" Height="28" Margin="333,70,0,0" VerticalAlignment="Top" Width="79"/>
-        <Label Content="Start Date:" HorizontalAlignment="Left" Height="28" Margin="333,103,0,0" VerticalAlignment="Top" Width="79"/>
-        <Label Content="Hourly Wage:" HorizontalAlignment="Left" Height="28" Margin="333,136,0,0" VerticalAlignment="Top" Width="93"/>
-        <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="28" Margin="417,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
-        <TextBox x:Name="TextBox_LastName" HorizontalAlignment="Left" Height="28" Margin="417,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
-        <DatePicker x:Name="Datepicker_StartDate" HorizontalAlignment="Left" Height="25" Margin="417,106,0,0" VerticalAlignment="Top" Width="109"/>
-        <ComboBox x:Name="Combo_Wage" HorizontalAlignment="Left" Height="25" Margin="417,136,0,0" VerticalAlignment="Top" Width="109">
+        Title="MainWindow" Height="700" Width="1025" Closing="Window_Closing">
+    <Grid Opacity="0.66">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="134*"/>
+            <ColumnDefinition Width="891*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/myimage.jpg"/>
+        </Grid.Background>
+
+        <Rectangle HorizontalAlignment="Left" Height="192" Margin="485,443,0,0" Stroke="Black" VerticalAlignment="Top" Width="362" Fill="White" Opacity="0.8" Grid.Column="1"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="398" Margin="485,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="362" Fill="White" Opacity="0.8" Grid.Column="1"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="398" Margin="22,28,0,0" VerticalAlignment="Top" Width="290" Background="White" Opacity="0.8" UseLayoutRounding="True" Grid.ColumnSpan="2"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="398" Margin="193,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="281" Fill="White" Opacity="0.8" Grid.Column="1"/>
+        <ListBox x:Name="ListBox_Jobs" HorizontalAlignment="Left" Height="157" Margin="503,41,0,0" VerticalAlignment="Top" Width="325" d:ItemsSource="{d:SampleData ItemCount=5}" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_LoadContractors" Content="All Contractors" HorizontalAlignment="Left" Height="28" Margin="44,226,0,0" VerticalAlignment="Top" Width="126" Click="Button_LoadContractors_Click" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button_LoadJobs" Content="Load Jobs" HorizontalAlignment="Left" Height="28" Margin="503,226,0,0" VerticalAlignment="Top" Width="127" Click="Button_LoadJobs_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="First Name:" HorizontalAlignment="Left" Height="28" Margin="199,37,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Height="28" Margin="199,70,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Start Date:" HorizontalAlignment="Left" Height="28" Margin="199,103,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Hourly Wage:" HorizontalAlignment="Left" Height="28" Margin="199,136,0,0" VerticalAlignment="Top" Width="93" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="28" Margin="283,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="TextBox_LastName" HorizontalAlignment="Left" Height="28" Margin="283,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <DatePicker x:Name="Datepicker_StartDate" HorizontalAlignment="Left" Height="25" Margin="283,106,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <ComboBox x:Name="Combo_Wage" HorizontalAlignment="Left" Height="25" Margin="283,136,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1">
             <ComboBoxItem Content="35"/>
             <ComboBoxItem Content="40"/>
             <ComboBoxItem Content="45"/>
             <ComboBoxItem Content="55"/>
             <ComboBoxItem Content="60"/>
         </ComboBox>
-        <Button x:Name="Button_AddContractor" Content="Add Contractor" HorizontalAlignment="Left" Height="28" Margin="362,166,0,0" VerticalAlignment="Top" Width="110" Click="Button_AddContractor_Click"/>
-        <Button x:Name="Button_RemoveContractor" Content="Remove Contractor" HorizontalAlignment="Left" Height="28" Margin="477,166,0,0" VerticalAlignment="Top" Width="122" Click="Button_RemoveContractor_Click"/>
-        <Label Content="Job Name:" HorizontalAlignment="Left" Height="28" Margin="333,213,0,0" VerticalAlignment="Top" Width="79"/>
-        <Label Content="Date:" HorizontalAlignment="Left" Height="28" Margin="333,246,0,0" VerticalAlignment="Top" Width="79"/>
-        <Label Content="Cost:" HorizontalAlignment="Left" Height="28" Margin="333,279,0,0" VerticalAlignment="Top" Width="79"/>
-        <TextBox x:Name="TextBox_JobName" HorizontalAlignment="Left" Height="28" Margin="417,213,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
-        <DatePicker x:Name="Datepicker_JobDate" HorizontalAlignment="Left" Height="25" Margin="417,246,0,0" VerticalAlignment="Top" Width="109"/>
-        <TextBox x:Name="TextBox_JobCost" HorizontalAlignment="Left" Height="28" Margin="417,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
-        <Button x:Name="Button_AddJob" Content="Add Job" HorizontalAlignment="Left" Height="28" Margin="362,340,0,0" VerticalAlignment="Top" Width="110" Click="Button_AddJob_Click"/>
-        <Button x:Name="Button_RemoveJob" Content="Remove Job" HorizontalAlignment="Left" Height="28" Margin="477,340,0,0" VerticalAlignment="Top" Width="122" Click="Button_RemoveJob_Click"/>
-        <Button x:Name="Button_AssignJob" Content="3. Assign Job" HorizontalAlignment="Left" Height="28" Margin="64,385,0,0" VerticalAlignment="Top" Width="110" Click="Button_AssignJob_Click"/>
-        <Button x:Name="Button_CompleteJob" Content="2. Complete Job" HorizontalAlignment="Left" Height="28" Margin="637,355,0,0" VerticalAlignment="Top" Width="144" Click="Button_CompleteJob_Click"/>
-        <Label Content="2. Select Job:" HorizontalAlignment="Left" Height="28" Margin="64,341,0,0" VerticalAlignment="Top" Width="110"/>
-        <ComboBox x:Name="Combo_AvailableJobs" HorizontalAlignment="Left" Height="24" Margin="146,344,0,0" VerticalAlignment="Top" Width="128" DropDownOpened="Combo_AvailableJobs_DropDownOpened">
+        <Button x:Name="Button_AddContractor" Content="Add Contractor" HorizontalAlignment="Left" Height="28" Margin="228,166,0,0" VerticalAlignment="Top" Width="110" Click="Button_AddContractor_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_RemoveContractor" Content="Remove Contractor" HorizontalAlignment="Left" Height="28" Margin="343,166,0,0" VerticalAlignment="Top" Width="122" Click="Button_RemoveContractor_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Job Name:" HorizontalAlignment="Left" Height="28" Margin="199,265,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Date:" HorizontalAlignment="Left" Height="28" Margin="199,304,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Cost:" HorizontalAlignment="Left" Height="28" Margin="199,341,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="TextBox_JobName" HorizontalAlignment="Left" Height="28" Margin="283,265,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <DatePicker x:Name="Datepicker_JobDate" HorizontalAlignment="Left" Height="24" Margin="283,304,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="TextBox_JobCost" HorizontalAlignment="Left" Height="28" Margin="283,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_AddJob" Content="Add Job" HorizontalAlignment="Left" Height="28" Margin="228,385,0,0" VerticalAlignment="Top" Width="110" Click="Button_AddJob_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_RemoveJob" Content="Remove Job" HorizontalAlignment="Left" Height="28" Margin="343,385,0,0" VerticalAlignment="Top" Width="122" Click="Button_RemoveJob_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_AssignJob" Content="3. Assign Job" HorizontalAlignment="Left" Height="28" Margin="64,385,0,0" VerticalAlignment="Top" Width="110" Click="Button_AssignJob_Click" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button_CompleteJob" Content="2. Complete Job" HorizontalAlignment="Left" Height="28" Margin="503,385,0,0" VerticalAlignment="Top" Width="144" Click="Button_CompleteJob_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="2. Select Job:" HorizontalAlignment="Left" Height="28" Margin="64,341,0,0" VerticalAlignment="Top" Width="110" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="Combo_AvailableJobs" HorizontalAlignment="Left" Height="24" Margin="12,344,0,0" VerticalAlignment="Top" Width="128" DropDownOpened="Combo_AvailableJobs_DropDownOpened" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="1. Select Contractor from List" HorizontalAlignment="Left" Height="28" Margin="64,302,0,0" VerticalAlignment="Top" Width="210" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label Content="To assign a job for contractor:" HorizontalAlignment="Left" Height="28" Margin="64,265,0,0" VerticalAlignment="Top" Width="210" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label Content="To complete a job:" HorizontalAlignment="Left" Height="28" Margin="503,304,0,0" VerticalAlignment="Top" Width="232" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="1. Select Job from List" HorizontalAlignment="Left" Height="28" Margin="503,344,0,0" VerticalAlignment="Top" Width="232" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_LoadAvailable_Contractors" Content="Currently available" HorizontalAlignment="Left" Height="28" Margin="32,226,0,0" VerticalAlignment="Top" Width="108" FontSize="11" Click="Button_LoadAvailable_Contractors_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_NotCompleted" Content="No Contractor" HorizontalAlignment="Left" Height="28" Margin="702,226,0,0" VerticalAlignment="Top" Width="126" Click="Button_NotCompleted_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="Button_InRangeJobs" Content="Show Jobs in Range" HorizontalAlignment="Left" Height="28" Margin="575,580,0,0" VerticalAlignment="Top" Width="207" Click="Button_InRangeJobs_Click" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Enter minimum cost of job:" HorizontalAlignment="Left" Height="28" Margin="503,492,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Enter maximum cost of job:" HorizontalAlignment="Left" Height="28" Margin="503,525,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="TextBox_JobCost_Min" HorizontalAlignment="Left" Height="28" Margin="719,492,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="TextBox_JobCost_Max" HorizontalAlignment="Left" Height="28" Margin="719,525,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="To filter jobs in your desired price:" HorizontalAlignment="Left" Height="28" Margin="503,459,0,0" VerticalAlignment="Top" Width="232" FontWeight="Bold" Grid.Column="1"/>
+        <ListBox x:Name="ListBox_Contractors" HorizontalAlignment="Left" Height="157" Margin="44,41,0,0" VerticalAlignment="Top" Width="230" d:ItemsSource="{d:SampleData ItemCount=5}" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-
-        </ComboBox>
-        <Label Content="1. Select Contractor from List" HorizontalAlignment="Left" Height="28" Margin="64,302,0,0" VerticalAlignment="Top" Width="210"/>
-        <Label Content="To assign a job for contractor:" HorizontalAlignment="Left" Height="28" Margin="64,265,0,0" VerticalAlignment="Top" Width="210"/>
-        <Label Content="To complete a job:" HorizontalAlignment="Left" Height="28" Margin="637,265,0,0" VerticalAlignment="Top" Width="232"/>
-        <Label Content="1. Select Job from List" HorizontalAlignment="Left" Height="28" Margin="637,302,0,0" VerticalAlignment="Top" Width="232"/>
-        <Button x:Name="Button_LoadAvailable_Contractors" Content="Currently available" HorizontalAlignment="Left" Height="28" Margin="166,226,0,0" VerticalAlignment="Top" Width="108" FontSize="11" Click="Button_LoadAvailable_Contractors_Click"/>
-        <Button x:Name="Button_NotCompleted" Content="No Contractor" HorizontalAlignment="Left" Height="28" Margin="761,226,0,0" VerticalAlignment="Top" Width="126" Click="Button_NotCompleted_Click"/>
-        <Button x:Name="Button_InRangeJobs" Content="Show Jobs in Range" HorizontalAlignment="Left" Height="28" Margin="637,538,0,0" VerticalAlignment="Top" Width="280" Click="Button_InRangeJobs_Click"/>
-        <Label Content="Enter minimum cost of job:" HorizontalAlignment="Left" Height="28" Margin="637,461,0,0" VerticalAlignment="Top" Width="160"/>
-        <Label Content="Enter maximum cost of job:" HorizontalAlignment="Left" Height="28" Margin="637,494,0,0" VerticalAlignment="Top" Width="160"/>
-        <TextBox x:Name="TextBox_JobCost_Min" HorizontalAlignment="Left" Height="28" Margin="802,461,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
-        <TextBox x:Name="TextBox_JobCost_Max" HorizontalAlignment="Left" Height="28" Margin="802,494,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
-        <Label Content="To filter jobs in your desired price:" HorizontalAlignment="Left" Height="28" Margin="637,428,0,0" VerticalAlignment="Top" Width="232"/>
-        <Rectangle HorizontalAlignment="Left" Height="182" Margin="619,413,0,0" Stroke="Black" VerticalAlignment="Top" Width="326"/>
-        <Rectangle HorizontalAlignment="Left" Height="371" Margin="619,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="326"/>
-        <Rectangle HorizontalAlignment="Left" Height="371" Margin="327,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="281"/>
-        <Rectangle HorizontalAlignment="Left" Height="586" Margin="10,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="306"/>
 
     </Grid>
 </Window>

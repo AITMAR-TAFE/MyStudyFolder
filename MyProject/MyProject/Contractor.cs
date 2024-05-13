@@ -8,7 +8,7 @@ using static MyProject.Job;
 
 namespace MyProject
 {
-    class Contractor
+    public class Contractor
     {
         public int ID { get; set; }
         public string FirstName { get; set; }

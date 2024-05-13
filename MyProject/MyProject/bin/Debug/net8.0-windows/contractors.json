@@ -1,0 +1,18 @@
+[
+  {
+    "ID": 3,
+    "FirstName": "contractor",
+    "LastName": "a",
+    "StartDate": "2024-04-29T00:00:00",
+    "Wage": 35,
+    "Status": 0
+  },
+  {
+    "ID": 3,
+    "FirstName": "David",
+    "LastName": "Green",
+    "StartDate": "2024-04-29T00:00:00",
+    "Wage": 35,
+    "Status": 0
+  }
+]
